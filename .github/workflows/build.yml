@@ -1,0 +1,18 @@
+
+name: Build Dhami TV Dashboard
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract project ZIP
+        run: unzip -o DhamiTVDashboard_source.zip -d project
+
+      - name: Check project files
+        run: find project -maxdepth 4 -type f | head -100
